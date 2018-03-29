@@ -64,9 +64,9 @@ export LESS_TERMCAP_us=$'\E[01;33m'
 EOF
 
 #screenrc
-wget https://gist.githubusercontent.com/joaopizani/2718397/raw/9e2560b77e1e1298ef24be16297d853f9885b20d/.screenrc
+wget https://gist.githubusercontent.com/joaopizani/2718397/raw/9e2560b77e1e1298ef24be16297d853f9885b20d/.screenrc -P ~
 #gdbinint
-wget https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit
+wget https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit -P ~
 
 
 # git
