@@ -48,6 +48,48 @@ autocmd BufEnter *.txt set syntax=c
 autocmd BufEnter *.log set syntax=c
 EOF
 
+# ~/.vimrc
+
+echo '~/.gitconfig'
+touch ~/.gitconfig
+
+tee -a ~/.gitconfig << EOF
+[user]
+   email = name@xxx.com
+   name = lyuehwu 
+[merge]
+   keepBackup = false;
+   tool = meld
+[mergetool]
+    prompt = false
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+[color]
+   ui = auto
+[color "branch"]
+   current = yellow bold
+   remote = cyan bold
+[color "diff"]
+   meta = yellow bold
+   frag = magenta bold
+   old = red bold
+   new = green bold
+   whitespace = red reverse
+[color "status"]
+   added = green bold
+   changed = yellow bold
+   untracked = red bold
+[alias]
+   #############
+   b = branch
+   #############
+   d = diff
+   #############
+   s = status
+EOF
 
 # ~/.bashrc colorful man page
 # colorful man page
@@ -70,12 +112,21 @@ wget https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit -
 
 
 # git
+echo -e "\n"
 read -p "Install git (Y/y)" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     sudo apt-get install git
 fi
 
+#meld
+echo -e "\n"
+read -p "Install meld (Y/y)" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+   sudo apt-get install meld
+fi
+
 # python
+echo -e "\n"
 read -p "Install python3 (Y/y)" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     sudo apt-get install python3-pip
@@ -84,5 +135,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 echo -e "\n\nManually type the below command :"
-echo 'bind -f  ~/.inputrc'
+echo 'bind -f ~/.inputrc'
 echo 'source ~/.bashrc'
+echo -e "\nManually change the email and name in .gitconfig"
