@@ -21,6 +21,9 @@ EOF
 # ~/.vimrc
 
 echo '~/.vimrc'
+echo 'install vim-gui-common'
+sudo apt-get install vim-gui-common
+
 touch ~/.vimrc
 
 tee -a ~/.vimrc << EOF
@@ -50,46 +53,55 @@ EOF
 
 # ~/.vimrc
 
-echo '~/.gitconfig'
-touch ~/.gitconfig
 
-tee -a ~/.gitconfig << EOF
-[user]
-   email = name@xxx.com
-   name = lyuehwu 
-[merge]
-   keepBackup = false;
-   tool = meld
-[mergetool]
-    prompt = false
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE"
-    keepTemporaries = false
-    trustExitCode = false
-    keepBackup = false
-[color]
-   ui = auto
-[color "branch"]
-   current = yellow bold
-   remote = cyan bold
-[color "diff"]
-   meta = yellow bold
-   frag = magenta bold
-   old = red bold
-   new = green bold
-   whitespace = red reverse
-[color "status"]
-   added = green bold
-   changed = yellow bold
-   untracked = red bold
-[alias]
-   #############
-   b = branch
-   #############
-   d = diff
-   #############
-   s = status
+# git
+echo -e "\n"
+read -p "Install git (Y/y)" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    sudo apt-get install git
+
+
+   echo '~/.gitconfig'
+   touch ~/.gitconfig
+
+   tee -a ~/.gitconfig << EOF
+   [user]
+      email = name@xxx.com
+      name = lyuehwu 
+   [merge]
+      keepBackup = false;
+      tool = meld
+   [mergetool]
+       prompt = false
+   [mergetool "meld"]
+       cmd = meld "$LOCAL" "$MERGED" "$REMOTE"
+       keepTemporaries = false
+       trustExitCode = false
+       keepBackup = false
+   [color]
+      ui = auto
+   [color "branch"]
+      current = yellow bold
+      remote = cyan bold
+   [color "diff"]
+      meta = yellow bold
+      frag = magenta bold
+      old = red bold
+      new = green bold
+      whitespace = red reverse
+   [color "status"]
+      added = green bold
+      changed = yellow bold
+      untracked = red bold
+   [alias]
+      #############
+      b = branch
+      #############
+      d = diff
+      #############
+      s = status
 EOF
+fi
 
 # ~/.bashrc colorful man page
 # colorful man page
@@ -105,17 +117,22 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;33m'
 EOF
 
-#screenrc
-wget https://gist.githubusercontent.com/joaopizani/2718397/raw/9e2560b77e1e1298ef24be16297d853f9885b20d/.screenrc -P ~
-#gdbinint
-wget https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit -P ~
 
-
-# git
 echo -e "\n"
-read -p "Install git (Y/y)" -n 1 -r
+read -p "Install screen (Y/y)" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    sudo apt-get install git
+   sudo apt install screen
+   #screenrc
+   wget https://gist.githubusercontent.com/joaopizani/2718397/raw/9e2560b77e1e1298ef24be16297d853f9885b20d/.screenrc -P ~
+fi
+
+
+echo -e "\n"
+read -p "Install gdb (Y/y)" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+   sudo apt-get install gdb
+   #gdbinint
+   wget https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit -P ~
 fi
 
 #meld
