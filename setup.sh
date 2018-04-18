@@ -1,4 +1,4 @@
-#!/bin/bash
+/bin/bash
 
 # ref 
 # https://github.com/kevinhughes27/setup-script/blob/master/bootstrap.sh
@@ -140,6 +140,13 @@ echo -e "\n"
 read -p "Install meld (Y/y)" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
    sudo apt-get install meld
+fi
+
+#htop
+echo -e "\n"
+read -p "Install htop (Y/y)" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+   sudo apt-get install htop
 fi
 
 # python
