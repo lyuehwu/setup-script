@@ -100,6 +100,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
       d = diff
       #############
       s = status
+      #############
+      o = checkout
 EOF
 fi
 
