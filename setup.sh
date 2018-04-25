@@ -1,4 +1,4 @@
-/bin/bash
+#!/bin/bash
 
 # ref 
 # https://github.com/kevinhughes27/setup-script/blob/master/bootstrap.sh
