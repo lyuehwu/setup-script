@@ -151,6 +151,13 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
    sudo apt-get install htop
 fi
 
+#plantuml
+echo -e "\n"
+read -p "Install plantuml (Y/y)" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+   sudo apt-get install plantuml
+fi
+
 # python
 echo -e "\n"
 read -p "Install python3 (Y/y)" -n 1 -r
