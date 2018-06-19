@@ -128,6 +128,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
    wget https://gist.githubusercontent.com/joaopizani/2718397/raw/9e2560b77e1e1298ef24be16297d853f9885b20d/.screenrc -P ~
 fi
 
+echo -e "\n"
+read -p "Install tmux (Y/y)" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+   sudo apt install tmux
+fi
 
 echo -e "\n"
 read -p "Install gdb (Y/y)" -n 1 -r
