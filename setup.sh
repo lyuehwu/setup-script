@@ -102,6 +102,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
       s = status
       #############
       o = checkout
+      #############
+      l = log 
 EOF
 fi
 
