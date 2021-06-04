@@ -113,8 +113,17 @@ EOF
 fi
 
 # ~/.bashrc colorful man page
+# git branch
 # colorful man page
 tee -a ~/.bashrc << EOF
+
+#Add below line above PS1
+#parse_git_branch() { 
+#   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+#}
+#Add below line in PS1
+#\[\e[91m\]\$(parse_git_branch)
+
 export PAGER="`which less` -s"
 export BROWSER="$PAGER"
 export LESS_TERMCAP_mb=$'\E[01;36m'
@@ -126,14 +135,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;33m'
 EOF
 
-
-echo -e "\n"
-read -p "Install screen (Y/y)" -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-   sudo apt install screen
-   #screenrc
-   wget https://gist.githubusercontent.com/joaopizani/2718397/raw/9e2560b77e1e1298ef24be16297d853f9885b20d/.screenrc -P ~
-fi
 
 echo -e "\n"
 read -p "Install tmux (Y/y)" -n 1 -r
